@@ -57,7 +57,7 @@ RUN useradd --create-home slee
 RUN echo "export USE_CCACHE=1" >> /etc/profile.d/android
 ENV USE_CCACHE 1
 
-USER builder
+USER slee
 
 ENV HOME /home/slee
 
