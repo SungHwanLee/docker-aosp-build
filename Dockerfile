@@ -58,18 +58,18 @@ ENV HOME /home/builder
 # I'm leaving these installation instructions for different Java versions in case you need them.
 
 # Install JDK6
-#ADD jdk-6u45-linux-x64.bin /opt/jdk-6u45-linux-x64.bin
-#RUN chmod a+x /opt/jdk-6u45-linux-x64.bin
-#WORKDIR /opt
-#RUN /opt/jdk-6u45-linux-x64.bin
-#RUN /bin/sh -c 'cd /usr/local/bin ; for i in /opt/jdk1.6.0_45/bin/* ; do ln -s $i ; done'
-#RUN echo "export PATH=${PATH}:/opt/jdk1.6.0_45/bin" >> /etc/profile.d/java
-#RUN echo "export JAVA_HOME=/opt/jdk1.6.0_45" >> /etc/profile.d/java
+ADD jdk-6u45-linux-x64.bin /opt/jdk-6u45-linux-x64.bin
+RUN chmod a+x /opt/jdk-6u45-linux-x64.bin
+WORKDIR /opt
+RUN /opt/jdk-6u45-linux-x64.bin
+RUN /bin/sh -c 'cd /usr/local/bin ; for i in /opt/jdk1.6.0_45/bin/* ; do ln -s $i ; done'
+RUN echo "export PATH=${PATH}:/opt/jdk1.6.0_45/bin" >> /etc/profile.d/java
+RUN echo "export JAVA_HOME=/opt/jdk1.6.0_45" >> /etc/profile.d/java
 
 # Install Oracle Java 7
-#RUN sudo add-apt-repository ppa:webupd8team/java
-#RUN sudo apt-get -qq update
-#RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-#RUN sudo apt-get install -y oracle-java7-installer
-#RUN update-java-alternatives -s java-7-oracle
-#RUN apt-get install oracle-java7-set-default
+RUN sudo add-apt-repository ppa:webupd8team/java
+RUN sudo apt-get -qq update
+RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+RUN sudo apt-get install -y oracle-java7-installer
+RUN update-java-alternatives -s java-7-oracle
+RUN apt-get install oracle-java7-set-default
