@@ -53,13 +53,13 @@ RUN apt-get install -y oracle-java7-set-default
 RUN echo "root:docker" | chpasswd
 
 # Adding a user called 'builder' and setting up CCACHE
-RUN useradd --create-home builder
+RUN useradd --create-home slee
 RUN echo "export USE_CCACHE=1" >> /etc/profile.d/android
 ENV USE_CCACHE 1
 
 USER builder
 
-ENV HOME /home/builder
+ENV HOME /home/slee
 
 # End of the Dockerfile
 
