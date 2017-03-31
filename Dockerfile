@@ -41,6 +41,14 @@ RUN apt-get install oracle-java6-set-default
 RUN apt-get install -y gettext python-libxml2 yasm bc
 RUN apt-get install -y squashfs-tools genisoimage dosfstools mtools
 
+# Install Oracle Java 7
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get -qq update
+RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+RUN apt-get install -y oracle-java7-installer
+RUN update-java-alternatives -s java-7-oracle
+RUN apt-get install oracle-java7-set-default
+
 # set ROOT password
 RUN echo "root:docker" | chpasswd
 
@@ -66,10 +74,4 @@ ENV HOME /home/builder
 # RUN echo "export PATH=${PATH}:/opt/jdk1.6.0_45/bin" >> /etc/profile.d/java
 # RUN echo "export JAVA_HOME=/opt/jdk1.6.0_45" >> /etc/profile.d/java
 
-# Install Oracle Java 7
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get -qq update
-RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-RUN apt-get install -y oracle-java7-installer
-RUN update-java-alternatives -s java-7-oracle
-RUN apt-get install oracle-java7-set-default
+
