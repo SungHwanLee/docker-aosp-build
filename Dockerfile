@@ -1,9 +1,10 @@
 # We start with our base OS, Ubuntu 14.04
 #FROM ubuntu:14.04
-FROM ubuntu
+FROM ubuntu:slee
 
 # This Dockerfile is HEAVILY based on David Keppler "dave@kepps.net" version
-MAINTAINER Mike Wallace "mike.wallace@risesoftware.com"
+# forked from Mike Wallace "mike.wallace@risesoftware.com"
+MAINTAINER Sung Hwan Lee "slee@uniumwifi.com"
 
 # Add the repositories needed for the packages we're going to install
 # These are added to the Ubuntu base, not your host operating system. As are all the packages.
@@ -54,8 +55,8 @@ RUN apt-get install -y oracle-java7-set-default
 # RUN echo "root:docker" | chpasswd
 
 # Adding a user called 'builder' and setting up CCACHE
-RUN useradd --create-home slee
-RUN echo "export USE_CCACHE=1" >> /etc/profile.d/android
+# RUN useradd --create-home slee
+# RUN echo "export USE_CCACHE=1" >> /etc/profile.d/android
 ENV USE_CCACHE 1
 
 USER slee
