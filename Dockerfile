@@ -67,9 +67,9 @@ ENV HOME /home/builder
 # RUN echo "export JAVA_HOME=/opt/jdk1.6.0_45" >> /etc/profile.d/java
 
 # Install Oracle Java 7
-RUN sudo add-apt-repository ppa:webupd8team/java
-RUN sudo apt-get -qq update
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get -qq update
 RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-RUN sudo apt-get install -y oracle-java7-installer
+RUN apt-get install -y oracle-java7-installer
 RUN update-java-alternatives -s java-7-oracle
 RUN apt-get install oracle-java7-set-default
