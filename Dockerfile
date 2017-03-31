@@ -1,5 +1,6 @@
 # We start with our base OS, Ubuntu 14.04
-FROM ubuntu:14.04
+#FROM ubuntu:14.04
+FROM ubuntu
 
 # This Dockerfile is HEAVILY based on David Keppler "dave@kepps.net" version
 MAINTAINER Mike Wallace "mike.wallace@risesoftware.com"
@@ -50,7 +51,7 @@ RUN update-java-alternatives -s java-7-oracle
 RUN apt-get install -y oracle-java7-set-default
 
 # set ROOT password
-RUN echo "root:docker" | chpasswd
+# RUN echo "root:docker" | chpasswd
 
 # Adding a user called 'builder' and setting up CCACHE
 RUN useradd --create-home slee
