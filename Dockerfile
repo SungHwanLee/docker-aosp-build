@@ -57,12 +57,13 @@ RUN useradd --create-home slee
 RUN echo "export USE_CCACHE=1" >> /etc/profile.d/android
 ENV USE_CCACHE 1
 
-# set slee password
-RUN echo "slee:docker" | chpasswd
-
 USER slee
 
 ENV HOME /home/slee
+
+# set slee password
+# RUN echo "slee:docker" | chpasswd
+
 
 # End of the Dockerfile
 
