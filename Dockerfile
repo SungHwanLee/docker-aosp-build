@@ -47,7 +47,7 @@ RUN apt-get -qq update
 RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 RUN apt-get install -y oracle-java7-installer
 RUN update-java-alternatives -s java-7-oracle
-RUN apt-get install oracle-java7-set-default
+RUN apt-get install -y oracle-java7-set-default
 
 # set ROOT password
 RUN echo "root:docker" | chpasswd
